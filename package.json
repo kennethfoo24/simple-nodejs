@@ -1,0 +1,14 @@
+{
+    "name": "simple-node-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js application with Docker support",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "dd-trace": "^5.2.0",
+        "express": "^4.17.1",
+        "winston": "^3.11.0"
+    }
+}
