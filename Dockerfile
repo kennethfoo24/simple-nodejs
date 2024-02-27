@@ -7,10 +7,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Copy datadog serverless-init and datadog tracer
-COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
-COPY --from=datadog/dd-lib-js-init /operator-build/node_modules /dd_tracer/node/
-
 # Install application dependencies
 RUN npm install
 
@@ -25,7 +21,5 @@ ARG DD_GIT_COMMIT_SHA
 ENV DD_GIT_REPOSITORY_URL=${DD_GIT_REPOSITORY_URL} 
 ENV DD_GIT_COMMIT_SHA=${DD_GIT_COMMIT_SHA}
 
-
 # Define the command to run your application with dd trace
-ENTRYPOINT ["/app/datadog-init"]
 CMD [ "node", "app.js" ]
