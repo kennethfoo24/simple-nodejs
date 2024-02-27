@@ -61,6 +61,18 @@ spec:
           ports:
             - containerPort: 3000
           env:
+            - name: DD_PROFILING_ENABLED
+              value: "true"
+            - name: DD_LOGS_INJECTION
+              value: "true"
+            - name: DD_RUNTIME_METRICS_ENABLED
+              value: "true"
+            - name: DD_APPSEC_ENABLED
+              value: "true"
+            - name: DD_TRACE_DEBUG
+              value: "true"
+            - name: DD_TRACE_STARTUP_LOGS
+              value: "true"
             - name: DD_ENV
               valueFrom:
                 fieldRef:
