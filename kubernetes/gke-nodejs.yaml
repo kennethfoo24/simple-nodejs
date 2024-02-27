@@ -53,6 +53,9 @@ spec:
         tags.datadoghq.com/env: "gke-nodejs"
         tags.datadoghq.com/service: "gke-simple-nodejs"
         tags.datadoghq.com/version: "1.2.3"
+        admission.datadoghq.com/enabled: "true"
+      annotations:
+        admission.datadoghq.com/js-lib.version: "latest"
     spec:
       containers:
         - name: simple-node-pod
