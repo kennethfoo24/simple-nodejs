@@ -3,10 +3,17 @@
 #
 # This product includes software developed at Datadog (https://www.datadoghq.com/)
 # Copyright 2023 Datadog, Inc.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gke-nodejs
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: simple-node
+  namespace: gke-nodejs
   labels:
     name: simple-node-service
     app: simple-node
@@ -24,6 +31,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-node-deploy
+  namespace: gke-nodejs
   labels:
     name: simple-node-deploy
     app: simple-node
