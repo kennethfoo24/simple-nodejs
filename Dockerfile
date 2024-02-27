@@ -25,16 +25,6 @@ ARG DD_GIT_COMMIT_SHA
 ENV DD_GIT_REPOSITORY_URL=${DD_GIT_REPOSITORY_URL} 
 ENV DD_GIT_COMMIT_SHA=${DD_GIT_COMMIT_SHA}
 
-# datadog unified service tagging
-ENV DD_SERVICE="simple-nodejs"
-ENV DD_ENV="cloudrun-nodejs"
-ENV DD_VERSION=1
-ENV DD_API_KEY=${DD_API_KEY} 
-ENV DD_TRACE_ENABLED=true
-ENV DD_SITE='datadoghq.com'
-ENV DD_TRACE_PROPAGATION_STYLE='datadog'
-ENV DD_LOGS_ENABLED=true
-ENV DD_LOGS_INJECTION=true
 
 # Define the command to run your application with dd trace
 ENTRYPOINT ["/app/datadog-init"]
