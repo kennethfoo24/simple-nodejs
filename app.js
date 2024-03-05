@@ -18,9 +18,9 @@ app.get('/api', (req, res) => {
     message: 'Hello, this is a simple API!',
     date: new Date(),
   };
-  console.log("this is an apple")
+  console.log("This log is just in plain text, and will not be trace-log correlated")
 
-  logger.info('This is just FYI, no worries.')
+  logger.info('This is just an info log written in JSON.')
 
   // Send the JSON response
   res.json(apiResponse);
@@ -30,14 +30,14 @@ app.get('/api', (req, res) => {
 app.get('/getErrorRequest', (req, res) => {
   // Simulate an error by throwing an exception
   throw new Error('This is a simulated application error'),
-  logger.error('You got an error la brudder.',{fruit: 'apple' });
+  logger.error('This is an ERROR log written in JSON. The house is on fire !',{fruit: 'apple' });
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal Server Error' })
-  logger.log('error', 'You got an error la brudder. Walao...',{fruit: 'orange' });
+  logger.log('error', 'This is an ERROR log written in JSON. error: Internal Server Error',{fruit: 'orange' });
 });
 
 // Start the server
