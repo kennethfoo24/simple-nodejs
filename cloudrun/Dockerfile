@@ -35,6 +35,11 @@ ENV DD_SITE='datadoghq.com'
 ENV DD_TRACE_PROPAGATION_STYLE='datadog'
 ENV DD_LOGS_ENABLED=true
 ENV DD_LOGS_INJECTION=true
+ENV DD_PROFILING_ENABLED=true
+ENV DD_RUNTIME_METRICS_ENABLED=true
+ENV DD_APPSEC_ENABLED=true
+ENV DD_TRACE_DEBUG=true
+ENV DD_TRACE_STARTUP_LOGS=true
 
 # Define the command to run your application with dd trace
 ENTRYPOINT ["/app/datadog-init"]
